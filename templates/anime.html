@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+        <script src="https://kit.fontawesome.com/ed84511727.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../static/css/style.css"> <!--- for debugging -->
+        <title>Document</title>
+    </head>
+    <body style="padding-top: 0%;">
+        <div class="container" id = "anime_data" style="margin-top: -5%;">
+            <div class="row">
+                <br>
+                <img src="{{ image_url }}" id = "image_anime"> 
+                <h1 class = "m-top">{{ title }}</h1>
+                <h4 style = "color: gray;">{{ title_eng }}</h4>
+                <hr><br>
+                <!--- <img src="{{ image_url }}" alt=""> --->
+                <h3 class="m-top">{{ type_ }} - {{ score }}<i class="fas fa-star"></i> ({{ scored_by }} users)</h3><br>
+                <h3><span class = "red">aired: </span>{{ aired }}</h3><br>
+                <h4 class = "m-top"><b class = "red">synopsis: </b>{{ synopsis }}<br><br></h4>
+                <hr><br>
+                <h3 class = "red m-top">characters</h3>
+                <ul style = "list-style: none;">
+                    {%for i in range(0, len_)%}
+                        <li><h4>- {{characters[i].name}}</h4></li>
+                    {%endfor%}
+                </ul>
+            </div>    
+        </div>
+    </body>
+</html>
